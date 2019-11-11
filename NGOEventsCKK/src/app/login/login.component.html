@@ -3,11 +3,10 @@
     <form #login="ngForm" (ngSubmit)="afterLogin(login)" id="login">
         <table class="login">
             <tr>
-                <td align="right"><button class="button-active">LOG IN</button></td>
-                <td align="left"><button class="button" (click)="registerNav()">REGISTER</button></td>
+                <td align="center" class="tab-active">LOG IN</td>
+                <td align="center" class="tab" (click)="registerNav()">REGISTER</td>
             </tr>
-
-
+            
             <tr>
                 <td colspan="2" align="center"><input [class.has-error]="emailControl.invalid && emailControl.required && emailControl.touched"
                         type="text" id="email" name="email" required placeholder="Email address" [(ngModel)]="email"
@@ -38,7 +37,7 @@
 
 
             <tr>
-                <td align="right"><button class="button" type="submit" [disabled]="login.invalid">Login</button></td>
+                <td align="right"><button class="button" type="submit">Login</button></td>
                 <td align="left"><button class="button" type="reset">Clear</button></td>
                 <!--Both buttons must redirect on clicks-->
             </tr>
