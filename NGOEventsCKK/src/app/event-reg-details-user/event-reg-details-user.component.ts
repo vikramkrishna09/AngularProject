@@ -11,15 +11,24 @@ export class EventRegDetailsUserComponent implements OnInit {
 
   public next:boolean;
 
-  public eventRegDeet={};
-  //   "fname":"",
-  //   "lname":"",
-  //   "email":"",
-  //   "phone":"",
-  //   "addr":"",
-  //   "adulttix":0,
-  //   "childtix":0
-  // };
+  public eventRegDeet={
+     "fname":"",
+     "lname":"",
+     "email":"",
+     "phone":"",
+     "addr":"",
+     "adulttix":0,
+     "childtix":0
+   };
+ 
+    //all functions that retrieve event/ event details must have the ID in the URL.
+    //the other option would be to store this event in local storage so that we do not
+    //have to make multiple API calls.
+  public events = [
+    {
+      ename: "Event 1", edescr: "Lorem Ipsum", ecategory: "Conference", estart: "1968-11-16T00:00:00",
+      eend: "1968-11-16T00:00:00", elocation: "New York", ereg: true, eadult: 40, echild: 20,
+    }];
 
   constructor(private router:Router, private route:ActivatedRoute) { }
 

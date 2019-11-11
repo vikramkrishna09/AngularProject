@@ -11,7 +11,12 @@ th,h2       {color:#F3F7D4 !important; background-color:#093426 !important}
 .odd        {color:#093426 !important; background-color:#ACD7CA !important}
 
 .placeholder-img {width: 300px;}
-
+.event-name, .event-loc{
+  background-color: #ACD7CA; 
+  border:  #47947C solid 0.5px; 
+  border-radius: 2px;
+  height: 2cm;
+}
 /* The sidebar menu */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */

@@ -1,8 +1,8 @@
 .arial{font-family: Arial, Helvetica, sans-serif; color: #093426;}
 a             {color: #093426; text-decoration: none;}
 a:visited     {color: #47947C}
-.logout {float: right;}
-.header        {background-color:#ACD7CA; height: 25px;}
+.logout {float: right; vertical-align: middle;}
+.header        {background-color:#ACD7CA; height: 30px;}
 
 table       {width: 100%;}
 td,th       {width: 2in; height: 1cm;}
@@ -10,7 +10,22 @@ td          {padding-left: 10px;}
 th,h2       {color:#F3F7D4 !important; background-color:#093426 !important}
 .even       {color:#093426 !important; background-color:#F3F7D4 !important}
 .odd        {color:#093426 !important; background-color:#ACD7CA !important}
+.logout{
+  background-color: #347B98; /* Green */
+  border: none;
+  color: #F3F7D4;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px
+}
 
+.logout:hover {background-color: #66B032; color: #093426;}
 /* The sidebar menu */
 .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
