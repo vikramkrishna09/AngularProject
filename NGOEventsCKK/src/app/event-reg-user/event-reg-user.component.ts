@@ -26,6 +26,10 @@ export class EventRegUserComponent implements OnInit {
   }
   eventDetails(){
     this.router.navigate(['/event-details']);
+    //this function must always pass the event ID in the URL. 
+    //all functions that retrieve event/ event details must have the ID in the URL.
+    //the other option would be to store this event in local storage so that we do not
+    //have to make multiple API calls.
   }
   eventMgmtNav()
   {
