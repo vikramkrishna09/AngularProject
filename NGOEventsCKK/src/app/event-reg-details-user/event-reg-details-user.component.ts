@@ -20,6 +20,10 @@ export class EventRegDetailsUserComponent implements OnInit {
      "adulttix":0,
      "childtix":0
    };
+ 
+    //all functions that retrieve event/ event details must have the ID in the URL.
+    //the other option would be to store this event in local storage so that we do not
+    //have to make multiple API calls.
   public events = [
     {
       ename: "Event 1", edescr: "Lorem Ipsum", ecategory: "Conference", estart: "1968-11-16T00:00:00",

@@ -8,6 +8,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 export class EventDetailsUserComponent implements OnInit {
 
+  //a dummy event i have initialized for testing purposes.
   public events={
     ename:"Event 1",
     edescr:"Lorem Ipsum",
@@ -32,6 +33,10 @@ export class EventDetailsUserComponent implements OnInit {
   toRegDetails()
   {
     //goes to the next page
+    //this function must always pass the event ID in the URL. 
+    //all functions that retrieve event/ event details must have the ID in the URL.
+    //the other option would be to store this event in local storage so that we do not
+    //have to make multiple API calls.
     this.router.navigate(['/event-register']);
   }
 }
