@@ -5,10 +5,21 @@ import {catchError, map} from "rxjs/operators"
 
 
 
-export class Event 
+export class Event
 {
+  
   EventName: string
   EventDescription: string
+  EventCategory: string
+  EventStartDate: string
+  EventEndDate:String
+  EventStartTime:String
+  EventEndTime:String
+  EventLocation:String
+  AllowRegistration:Boolean
+  EventImage:String
+  AdultTicketPrice:String
+  ChildTicketPrice:String
 }
 
 export class User

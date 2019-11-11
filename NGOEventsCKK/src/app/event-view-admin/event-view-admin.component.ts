@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { HttpHeaders } from '@angular/c del /F /S /Q /A .gitommon/http';
 import { httpOptions } from '../user-view-admin/user-view-admin.component'
 import { APIService } from '../api.service';
 

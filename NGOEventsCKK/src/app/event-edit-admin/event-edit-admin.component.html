@@ -12,14 +12,14 @@
                 <!---------THE FIELDS: EVENT NAME--------->
                 <tr>
                     <td><label for="ename">Event name:</label></td>
-                    <td><input [class.has-error]="enameControl.invalid && enameControl.touched" required [(ngModel)]="events.ename" #enameControl="ngModel" type="text" id="ename" name="ename" placeholder="Name of the event"/></td>
+                    <td><input [class.has-error]="enameControl.invalid && enameControl.touched" required [(ngModel)]="events.EventName" #enameControl="ngModel" type="text" id="ename" name="ename" placeholder="Name of the event"/></td>
                     <td class="help-block" *ngIf="enameControl.invalid && enameControl.touched">Event name is required.
                     </td>
                 </tr>
                 <!---------THE FIELDS: EVENT DESCRIPTION--------->
                 <tr>
                     <td><label for="edescr">Event Description:</label></td>
-                    <td><input [class.has-error]="edescrControl.invalid && edescrControl.touched" required [(ngModel)]="events.edescr" #edescrControl="ngModel" id="edescr" name="edescr" type="textbox"
+                    <td><input [class.has-error]="edescrControl.invalid && edescrControl.touched" required [(ngModel)]="events.EventDescription" #edescrControl="ngModel" id="edescr" name="edescr" type="textbox"
                             placeholder="Description"/></td>
                     <td class="help-block" *ngIf="edescrControl.invalid && edescrControl.touched">Event description is
                         required.</td>
@@ -28,7 +28,7 @@
                 <tr>
                     <td><label for="ecategory">Category:</label></td>
                     <td><select id="ecategory" [class.has-error]="ecategoryControl.invalid && ecategoryControl.touched"
-                            required [(ngModel)]="events.ecategory" #ecategoryControl="ngModel" name="ecategory">
+                            required [(ngModel)]="events.EventCategory" #ecategoryControl="ngModel" name="ecategory">
                             <option value="Conference" [selected]="events.ecategory=='Conference'">Conference</option>
                             <option value="Seminar" [selected]="events.ecategory=='Seminar'">Seminar</option>
                             <option value="Presentation" [selected]="events.ecategory=='Presentation'">Presentation</option>
@@ -40,14 +40,14 @@
                 <tr>
                     <td><label for="estart">Start date and time:</label></td>
                     <td><input [class.has-error]="estartControl.invalid && estartControl.touched" required
-                            [(ngModel)]="events.estart" #estartControl="ngModel" type="datetime-local" id="estart" name="estart" /></td>
+                            [(ngModel)]="events.EventStartDateAndTime" #estartControl="ngModel" type="datetime-local" id="estart" name="estart" /></td>
                     <td class="help-block" *ngIf="estartControl.invalid && estartControl.touched">Event start date and
                         time is required.</td>
                 </tr>
                 <!---------THE FIELDS: END DATE AND TIME--------->
                 <tr>
                     <td><label for="eend">End date and time:</label></td>
-                    <td><input [class.has-error]="eendControl.invalid && eendControl.touched" required [(ngModel)]="events.eend" #eendControl="ngModel" type="datetime-local" id="eend" name="eend" />
+                    <td><input [class.has-error]="eendControl.invalid && eendControl.touched" required [(ngModel)]="events.EventEndDateAndTime" #eendControl="ngModel" type="datetime-local" id="eend" name="eend" />
                     </td>
                     <td class="help-block" *ngIf="eendControl.invalid && eendControl.touched">Event end date and time is
                         required.</td>
@@ -55,14 +55,14 @@
                 <!---------THE FIELDS: LOCATION--------->
                 <tr>
                     <td><label for="elocation">Event location:</label></td>
-                    <td><input [class.has-error]="elocationControl.invalid && elocationControl.touched" required [(ngModel)]="events.elocation" #elocationControl="ngModel" type="text" id="elocation" name="elocation" placeholder="Event location" /></td>
+                    <td><input [class.has-error]="elocationControl.invalid && elocationControl.touched" required [(ngModel)]="events.EventLocation" #elocationControl="ngModel" type="text" id="elocation" name="elocation" placeholder="Event location" /></td>
                     <td class="help-block" *ngIf="elocationControl.invalid && elocationControl.touched">Event location
                         is required.</td>
                 </tr>
                 <!---------THE FIELDS: REGISTRATION FLAG--------->
                 <tr>
                     <td><label for="ereg"> Allow registration?</label></td>
-                    <td><input type="checkbox" name="ereg" id="ereg" class="checkbox" [(ngModel)]="events.ereg" #eregControl="ngModel" [checked]="events.ereg"/></td>
+                    <td><input type="checkbox" name="ereg" id="ereg" class="checkbox" [(ngModel)]="events.AllowRegistration" #eregControl="ngModel" [checked]="events.ereg"/></td>
                 </tr>
                 <!---------THE FIELDS: EVENT IMAGE--------->
                 <tr>
@@ -72,7 +72,7 @@
                 <!---------THE FIELDS: ADULT TICKET PRICE--------->
                 <tr>
                     <td><label for="eadult">Adult ticket price:</label></td>
-                    <td><input [class.has-error]="eadultControl.invalid && eadultControl.touched" required pattern="[0-9]+" [(ngModel)]="events.eadult" #eadultControl="ngModel" type="text" id="eadult" name="eadult" /></td>
+                    <td><input [class.has-error]="eadultControl.invalid && eadultControl.touched" required pattern="[0-9]+" [(ngModel)]="events.AdultTicketPrice" #eadultControl="ngModel" type="text" id="eadult" name="eadult" /></td>
                     <!--must be parsed to int before storing in db-->
                     <td class="help-block" *ngIf="eadultControl.invalid && eadultControl.touched">Adult ticket price is
                         required and/or must be a number.</td>
@@ -80,7 +80,7 @@
                 <!---------THE FIELDS: CHILD TICKET PRICE--------->
                 <tr>
                     <td><label for="echild">Child ticket price:</label> </td>
-                    <td><input [class.has-error]="echildControl.invalid && echildControl.touched" required pattern="[0-9]+" [(ngModel)]="events.echild" #echildControl="ngModel" type="text" id="echild"
+                    <td><input [class.has-error]="echildControl.invalid && echildControl.touched" required pattern="[0-9]+" [(ngModel)]="events.ChildTicketPrice" #echildControl="ngModel" type="text" id="echild"
                             name="echild" /></td>
                     <!--must be parsed to int before storing in db-->
                     <td class="help-block" *ngIf="echildControl.invalid && echildControl.touched">Child ticket price is

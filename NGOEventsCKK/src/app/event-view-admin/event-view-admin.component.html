@@ -22,8 +22,8 @@
                 <td>{{ev.EventName}}</td>
                 <td>{{ev.EventCategory}}</td>
                 <td>{{ev.EventLocation}}</td>
-                <td>{{ev.EventStartDate|date:'MM/dd/yyyy'}}</td>
-                <td>{{ev.EventEndDate|date:'MM/dd/yyyy'}}</td>
+                <td>{{ev.EventStartDateAndTime|date:'MM/dd/yyyy'}}</td>
+                <td>{{ev.EventEndDateAndTime|date:'MM/dd/yyyy'}}</td>
                 <td><button class="link-buttons" (click)="eventEdit(ev._id)">Edit</button></td>
             </tr>
         </table>

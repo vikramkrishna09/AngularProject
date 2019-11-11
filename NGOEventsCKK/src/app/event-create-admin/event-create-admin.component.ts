@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { APIService,Event } from '../api.service';
+import { showMsg_for_creation_key } from '../event-view-admin/event-view-admin.component';
+import { httpOptions } from '../user-view-admin/user-view-admin.component';
 
 @Component({
   selector: 'app-event-create-admin',
@@ -11,8 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class EventCreateAdminComponent implements OnInit {
 
   selectedFile: File = null;
-  constructor(private router:Router, private route:ActivatedRoute, private http: HttpClient) { }
-  public userDetails={};
+  constructor(private router:Router, private route:ActivatedRoute, private http: HttpClient,private _data:APIService) { }
+  public eventDetails;
   ngOnInit() {
   }
 
@@ -28,7 +31,7 @@ export class EventCreateAdminComponent implements OnInit {
   }
   eventMgmtNav(){
     //side navigation bar: only redirects to this page on click
-    this.router.navigate(['/admin-user-mgmt']);
+    this.router.navigate(['/admin-event-mgmt']);
   }
   userViewNav(){
     //side navigation bar: only redirects to this page on click
@@ -36,10 +39,39 @@ export class EventCreateAdminComponent implements OnInit {
   }
 
   saveEvent(eventCreate: NgForm){
-    //POST to events table logic here
+    //POST to eventDetails table logic here
     //eventCreate is the variable that has all the data in it
     //read using eventCreate.value to get a JSON of the data input by the user
     console.log(eventCreate.value);
+    this.eventDetails = new Event
+    var data = eventCreate.value
+    this.eventDetails.EventName = data.ename
+    this.eventDetails.EventDescription = data.edescr
+    this.eventDetails.EventCategory = data.ecategory
+    this.eventDetails.EventLocation = data.elocation
+    this.eventDetails.AdultTicketPrice = data.eAdult
+    this.eventDetails.ChildTicketPrice = data.eChild
+    this.eventDetails.EventStartDateAndTime = data.estart
+    this.eventDetails.EventEndDateAndTime = data.eend
+    this.eventDetails.AllowRegistration = data.ereg
+
+    this.eventDetails= JSON.parse(JSON.stringify(this.eventDetails))
+
+    var subscriber  = this._data.createEvent(this.eventDetails,httpOptions).subscribe
+    (
+      (data) =>
+      { console.log(JSON.stringify(data)),
+        subscriber.unsubscribe()
+        localStorage.setItem(showMsg_for_creation_key,'true')
+        this.router.navigate(['/admin-event-mgmt'],{replaceUrl:false});
+
+      },
+        
+
+      (error) => console.log(error)
+
+    )
+
     this.router.navigate(['/admin-event-mgmt']);
   }
   backToEvents(){
