@@ -1,0 +1,49 @@
+<div class="arial">
+    <div class="sidenav">
+        <a (click)="userMgmtNav()">User Management</a>
+        <a (click)="eventMgmtNav()">Event Management</a>
+        <a (click)="userViewNav()">User View</a>
+    </div>
+    
+    <div class="main">
+        <h2>Create a User</h2>
+        <form #userCreate="ngForm" (ngSubmit)="saveUser(userCreate)">
+            <table>
+                <tr>
+                    <td><label for="fname">First Name:</label></td>
+                    <td><input [class.has-error]="fnameControl.invalid && fnameControl.touched" id="fname" required [(ngModel)]="fname" #fnameControl="ngModel" type="text" name="fname" type="text" placeholder="E.g. Jane"/></td>
+                    <td class="help-block" *ngIf="fnameControl.invalid && fnameControl.touched">User's first name is required.</td>
+                </tr>
+                <tr>
+                    <td><label for="lname">Last Name:</label></td>
+                    <td><input type="text" [class.has-error]="lnameControl.invalid && lnameControl.touched" id="lname" required [(ngModel)]="lname" #lnameControl="ngModel" type="text" name="lname" placeholder="E.g. Doe"/></td>
+                    <td class="help-block" *ngIf="lnameControl.invalid && lnameControl.touched">User's last name is required.</td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input [class.has-error]="emailControl.invalid && emailControl.touched"
+                        type="text" id="email" name="email" required [(ngModel)]="email"
+                        #emailControl="ngModel" type="text" placeholder="E.g. janedoe@example.com"></td>
+                    <td class="help-block" *ngIf="emailControl.invalid && emailControl.touched">User's email is required.</td>
+                </tr>
+                <tr>
+                    <td><label for="pass">Password:</label></td>
+                    <td><input [class.has-error]="passControl.invalid && passControl.touched" type="password" id="pass" name="pass" required
+                        [(ngModel)]="password" #passControl="ngModel"  type="password" placeholder="Password"/></td>
+                    <td class="help-block" *ngIf="passControl.invalid && passControl.touched">Password is required.</td>
+                </tr>
+                <tr>
+                    <td><label for="role">Role:</label></td>
+                    <td><select [class.has-error]="roleControl.invalid && roleControl.touched" required
+                        [(ngModel)]="role" #roleControl="ngModel" id="role" name="role">
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                    </select></td>
+                    <td class="help-block" *ngIf="roleControl.invalid && roleControl.touched">Please select a role.</td>
+                </tr>
+            </table>
+            <button class="button" type="submit"[disabled]="userCreate.invalid">Save</button>
+            <button class="button" type="reset" (click)="backToUsers()">Cancel</button> <!--Both buttons must redirect on clicks-->
+        </form>
+    </div>
+</div>

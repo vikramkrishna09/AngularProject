@@ -1,0 +1,37 @@
+<div class="arial">
+    <div class="main">
+        <table class="table-head">
+            <tr class="head-row">
+                <td class="head"><h2>Event Registration Detail: Event Name</h2></td>
+                <td class="head" align="center"><button class="back-button" (click)=backToUserView()>Back</button></td>
+            </tr>
+        </table>
+        <div class="container">
+            <table table-border>
+                <tr>
+                    <td class="left">{{events.ename}}</td>
+                    <td class="center" rowspan="3">{{events.edescr}}</td>
+                    <td class="right" rowspan="5">Event Image</td>
+                </tr>
+                <tr>
+                    <td class="left">Category : {{events.ecategory}}</td>
+                </tr>
+                <tr>
+                    <td class="left">Location : {{events.elocation}}</td>
+                </tr>
+                <tr>
+                    <td class="left">Starts : {{events.estart|date:'MM/dd/yyyy h:mm a'}}</td>
+                    <td class="center">Adult tickets : ${{events.eadult}}</td>
+                </tr>
+                <tr>
+                    <td class="left">Ends : {{events.eend|date:'MM/dd/yyyy h:mm a'}}</td>
+                    <td class="center">Child tickets : ${{events.echild}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center" class="bottom" (click)="toRegDetails()">Register</td>
+                    <!--insert if statement to activate this button only if flag is active-->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

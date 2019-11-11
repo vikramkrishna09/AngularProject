@@ -1,0 +1,31 @@
+<div class="arial">
+    <div class="sidenav">
+        <a (click)="userMgmtNav()">User Management</a>
+        <a (click)="eventMgmtNav()">Event Management</a>
+        <a (click)="userViewNav()">User View</a>
+    </div>
+    <div class="main">
+        <h2 class="view-name">Event Management</h2>
+        <button class="add-event-link" (click)="eventCreate()">Add an Event</button>
+        <table table-border class="event-table">
+            <tr>
+                <th>Event</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th> </th>
+            </tr>
+            <tr *ngFor="let ev of events; let o = odd; let e = even" [ngClass] = "{odd: o, even: e}">
+                <!--Ideally you would run an ngfor loop here-->
+                <!--and assign dark and light properties to alternate rows-->
+                <td>{{ev.EventName}}</td>
+                <td>{{ev.EventCategory}}</td>
+                <td>{{ev.EventLocation}}</td>
+                <td>{{ev.EventStartDate|date:'MM/dd/yyyy'}}</td>
+                <td>{{ev.EventEndDate|date:'MM/dd/yyyy'}}</td>
+                <td><button class="link-buttons" (click)="eventEdit(ev._id)">Edit</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

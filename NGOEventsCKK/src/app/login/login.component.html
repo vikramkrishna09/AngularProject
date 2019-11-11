@@ -1,0 +1,47 @@
+<div class="arial" align="center">
+
+    <form #login="ngForm" (ngSubmit)="afterLogin(login)" id="login">
+        <table class="login">
+            <tr>
+                <td align="right"><button class="button-active">LOG IN</button></td>
+                <td align="left"><button class="button" (click)="registerNav()">REGISTER</button></td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2" align="center"><input [class.has-error]="emailControl.invalid && emailControl.required && emailControl.touched"
+                        type="text" id="email" name="email" required placeholder="Email address" [(ngModel)]="email"
+                        #emailControl="ngModel" /></td>
+            </tr>
+            <tr class="help-block" *ngIf="emailControl.errors.required && emailControl.touched">
+                <td colspan="2" align="center">Email is required</td>
+            </tr>
+
+            <tr class="help-block" *ngIf="emailControl.errors.invalid && emailControl.touched">
+                <td colspan="2" align="center">Email is incorrect, or account does not exist</td>
+            </tr>
+
+            
+
+
+            <tr>
+                <td colspan="2" align="center"><input [class.has-error]="passControl.invalid && passControl.required && passControl.touched" type="password" id="pass" name="pass" required
+                        placeholder="Password" [(ngModel)]="password" #passControl="ngModel" /></td>
+            </tr>
+            <tr class="help-block" *ngIf="passControl != null && passControl.errors.required && passControl.touched">
+                    <td colspan="2" align="center">Password is required</td>
+            </tr>
+
+            <tr class="help-block" *ngIf="passControl != null && passControl.errors.invalid && passControl.touched">
+                <td colspan="2" align="center">Password is incorrect for this email</td>
+        </tr>
+
+
+            <tr>
+                <td align="right"><button class="button" type="submit" [disabled]="login.invalid">Login</button></td>
+                <td align="left"><button class="button" type="reset">Clear</button></td>
+                <!--Both buttons must redirect on clicks-->
+            </tr>
+        </table>
+    </form>
+</div>

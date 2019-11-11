@@ -1,0 +1,61 @@
+.arial{font-family: Arial, Helvetica, sans-serif; color: #093426;}
+a             {color: #093426}
+a:visited     {color: #47947C}
+.add-event-link {float: right;}
+
+td,th       {width: 2in; height: 1cm;}
+td          {padding-left: 10px;}
+th,h2       {color:#F3F7D4 !important; background-color:#093426 !important}
+.even       {color:#093426 !important; background-color:#F3F7D4 !important}
+.odd        {color:#093426 !important; background-color:#ACD7CA !important}
+
+.button{
+    background-color: #347B98; /* Green */
+    border: none;
+    color: #F3F7D4;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10px
+}
+  
+.button:hover {background-color: #66B032; color: #093426;}
+
+input,select{width: 2.5in; border: 0.5px solid #093426; border-radius: 2px; height: 1cm; padding-left: 5px;}
+.image{border: none;}
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #B6C653;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: #093426;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #47947C;
+  }
+  
+
+.has-error{border: red 2px solid;}
+.help-block{color: red; font-size: 12px;}
+.button:disabled{background-color: #F3F7D4;color:#448D76}

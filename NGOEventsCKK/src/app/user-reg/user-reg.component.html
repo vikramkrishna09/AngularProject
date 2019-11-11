@@ -1,0 +1,62 @@
+<div class="arial" align="center">
+    <form #userSignup="ngForm" (ngSubmit)="afterRegister(userSignup)">
+        <table class="register">
+<!---------THE NAV BUTTONS AT THE TOP OF THE BAR--------->
+            <tr>
+                <td align="right"><button class="button" (click)="loginNav()">LOG IN</button></td>
+                <td align="left"><button class="button-active">REGISTER</button></td>
+            </tr>
+<!---------THE FIELDS: FIRST NAME--------->
+            <tr>
+                <td colspan="2" align="center"><input [class.has-error]="fnameControl.invalid && fnameControl.touched" id="fname" required [(ngModel)]="fname" #fnameControl="ngModel" type="text" name="fname" placeholder="First Name"/></td>
+            </tr>
+            <tr class="help-block" *ngIf="fnameControl.invalid && fnameControl.touched">
+                    <td colspan="2" align="center">First Name is required</td>
+            </tr>
+<!---------THE FIELDS: LAST NAME--------->
+            <tr>
+                <td colspan="2" align="center"><input [class.has-error]="lnameControl.invalid && lnameControl.touched" id="lname" required [(ngModel)]="lname" #lnameControl="ngModel" type="text" name="lname" placeholder="Last Name"/></td>
+            </tr>
+            <tr class="help-block" *ngIf="lnameControl.invalid && lnameControl.touched">
+                    <td colspan="2" align="center">Email is required</td>
+            </tr>
+<!---------THE FIELDS: EMAIL--------->
+            <tr>
+                <td colspan="2" align="center"><input [class.has-error]="emailControl.invalid && emailControl.touched"
+                type="text" id="email" name="email" required placeholder="Email address" [(ngModel)]="email"
+                #emailControl="ngModel" /></td>
+            </tr>
+            <tr class="help-block" *ngIf="emailControl.invalid && emailControl.touched">
+                <td colspan="2" align="center">Email is required</td>
+            </tr>
+<!---------THE FIELDS: PASSWORD--------->            
+            <tr>
+                <td colspan="2" align="center"><input [class.has-error]="passControl.invalid && passControl.touched" type="password" id="pass" name="pass" required
+                    placeholder="Password" [(ngModel)]="password" #passControl="ngModel" /></td>
+            </tr>
+            <tr class="help-block" *ngIf="passControl.invalid && passControl.touched">
+                <td colspan="2" align="center">Password is required</td>
+            </tr>
+<!---------THE FIELDS: CONFIRM PASSWORD: I HAVE NO IDEA HOW TO IMPLEMENT THIS BUT JUST IN CASE I FIGURE IT OUT, I'M GOING TO KEEP A PLACEHOLDER--------->
+            <!-- <tr><td colspan="2" align="center"><input type="password" placeholder="Confirm Password"/></td></tr> -->
+
+<!---------THE SUBMIT AND CLEAR BUTTONS--------->
+            <tr>
+                <td align="right"><button class="button" type="submit" [disabled]="userSignup.invalid">Register</button></td>
+                <td align="left"><button class="button" type="reset">Clear</button></td> <!--Both buttons must redirect on clicks-->
+            </tr>
+
+            <div class="row"  *ngIf="showMsg">
+                <div class="col-xs-12">
+                  <p class="alert alert-success">
+                      <strong>Registration Success!</strong> Please click Login!.
+        
+                  </p>
+                </div>
+              </div>
+        </table>
+    </form>
+
+
+   
+</div>

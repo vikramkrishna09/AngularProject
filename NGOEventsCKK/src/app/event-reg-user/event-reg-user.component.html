@@ -1,0 +1,32 @@
+<div class="arial">
+    <div class="sidenav"> <!--Add an ngIf here to only display the nav bar when the user is an admin-->
+        <a (click)="userMgmtNav()">User Management</a>
+        <a (click)="eventMgmtNav()">Event Management</a>
+        <a (click)="userViewNav()">User View</a>
+    </div>
+
+    <div class="main">
+        <h2>Event Registration</h2>
+        <!--add an ngIf here to display "event registration (user view) for admins-->
+        <table> <!--three images per row-->
+        <!--We will be using an ngFor loop here, but maybe only populate the TD if the element exists?-->
+            <tr *ngFor="let ev of events; let i=index">
+                <div *ngIf="i % 3 == 0" class="row">
+                    <td *ngIf="i + 1 < events.length">{{events[i+1].ename}}</td>
+                    <td *ngIf="i + 2 < events.length">{{events[i+2].ename}}</td>
+                </div>
+            </tr>
+
+            <tr>
+                <td><img src="./../../assets/image-placeholder.jpg" class="placeholder-img" (click)="eventDetails()"/></td>
+                <td><img src="./../../assets/image-placeholder.jpg" class="placeholder-img" (click)="eventDetails()"/></td>
+                <td><img src="./../../assets/image-placeholder.jpg" class="placeholder-img" (click)="eventDetails()"/></td>
+            </tr>
+            <tr>
+                <td>Event: Location</td>
+                <td>Event: Location</td>
+                <td>Event: Location</td>
+            </tr>
+        </table>
+    </div>
+</div>

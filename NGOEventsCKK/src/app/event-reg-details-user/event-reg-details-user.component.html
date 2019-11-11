@@ -1,0 +1,79 @@
+<div class="arial">
+    <div class="main">
+        <div>
+            <h2>Event Name: Registration</h2>
+            <!--fetch event name for the header-->
+<!---------THE FORM--------->
+            <form #eventRegDetails="ngForm" (ngSubmit)="regConfirmNav(eventRegDetails)">
+                <table>
+<!---------THE FIELDS: USER FIRST NAME--------->
+                    <tr>
+                        <td><label for="fname">First name:</label></td>
+                        <td><input [class.has-error]="fnameControl.invalid && fnameControl.touched" type="text" id="fname" name="fname" placeholder="E.g. Jane" [(ngModel)]="firstname" #fnameControl="ngModel" required /></td>
+                        <td class="help-block" *ngIf="fnameControl.invalid && fnameControl.touched">User's first name is required.</td>
+                    </tr>
+<!---------THE FIELDS: USER LAST NAME--------->
+                    <tr>
+                        <td><label for="lname">Last name:</label></td>
+                        <td><input [class.has-error]="lnameControl.invalid && lnameControl.touched" type="textbox" id="lname" name="lname" placeholder="E.g. Doe" [(ngModel)]="lastname" #lnameControl="ngModel" required /></td>
+                        <td class="help-block" *ngIf="lnameControl.invalid && lnameControl.touched">User's last name is required.</td>
+                    </tr>
+<!---------THE FIELDS: USER EMAIL--------->
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input [class.has-error]="emailControl.invalid && emailControl.touched" type="email" id="email" name="email" placeholder="E.g.janedoe@example.com" [(ngModel)]="useremail" #emailControl="ngModel" required/></td>
+                        <td class="help-block" *ngIf="emailControl.invalid && emailControl.touched">User's email is required.</td>
+                    </tr>
+<!---------THE FIELDS: USER PHONE--------->
+                    <tr>
+                        <td><label for="phone">Phone number:</label></td>
+                        <td><input [class.has-error]="phoneControl.invalid && phoneControl.dirty" type="text" id="phone" name="phone" placeholder="XXX-XXX-XXXX" [(ngModel)]="phoneno" #phoneControl="ngModel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" /></td>
+                        <td class="help-block" *ngIf="phoneControl.invalid && phoneControl.dirty">The phone number must be of the format XXX-XXX-XXXX.</td>
+                    </tr>
+<!---------THE FIELDS: USER ADDRESS--------->
+                    <tr>
+                        <td><label for="addr">Address:</label></td>
+                        <td><input type="textbox" id="addr" name="addr" placeholder="Enter your address here" [(ngModel)]="address" #addrControl="ngModel"/></td>
+                        <!--no validation required, because this field isn't mandatory-->
+                    </tr>
+<!---------THE FIELDS: NUMBER OF ADULT TICKETS--------->
+                    <tr>
+                        <td><label for="adulttix">Adult tickets:</label></td>
+                        <td><input [class.has-error]="adulttixControl.invalid && adulttixControl.touched" type="number" min="0" id="adulttix" name="adulttix" [(ngModel)]="adulttickets" #adulttixControl="ngModel" required/></td>
+                        <td class="help-block" *ngIf="adulttixControl.invalid && adulttixControl.touched">Please select the number of adult tickets.</td>
+                    </tr>
+<!---------THE FIELDS: NUMBER OF CHILD TICKETS--------->
+                    <tr>
+                        <td><label for="childtix">Child tickets:</label></td>
+                        <td><input [class.has-error]="childtixControl.invalid && childtixControl.touched" type="number" min="0" id="childtix" name="childtix" [(ngModel)]="childtickets" #childtixControl="ngModel" required/></td>
+                        <td class="help-block" *ngIf="childtixControl.invalid && childtixControl.touched">Please select the number of child tickets.</td>
+                    </tr>
+                </table>
+<!---------THE BUTTONS: SUBMIT AND CANCEL--------->
+                <button class="button" type="submit" [disabled]="eventRegDetails.invalid">Next</button>
+                <button class="button" type="reset" (click)="backToEventDetails()">Cancel</button>
+                <!--Both buttons must redirect on clicks-->
+            </form>
+        </div>
+        <div *ngIf="next">
+            <h2>Event Name: Registration Confirmation</h2>
+                <table>
+                    <tr>
+                        <td>Adult tickets:</td>
+                        <td>{{eventRegDetails.value.adulttix}}</td>
+                    </tr>
+                    <tr>
+                        <td>Child tickets:</td>
+                        <td>{{eventRegDetails.value.childtix}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total:</td>
+                        <td>$40</td>
+                    </tr>
+                </table>
+                <button class="button" (click)="onRegister()">Register</button>
+                <button class="button" (click)="backToEventDetails()">Cancel</button>
+                <!--Both buttons must redirect on clicks-->
+            </div>
+    </div>
+</div>

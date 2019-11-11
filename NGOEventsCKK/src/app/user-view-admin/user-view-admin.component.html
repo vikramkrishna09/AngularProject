@@ -1,0 +1,56 @@
+<div class="arial">
+        <div class="sidenav">
+            <a (click)="userMgmtNav()">User Management</a>
+            <a (click)="eventMgmtNav()">Event Management</a>
+            <a (click)="userViewNav()">User View</a>
+        </div>
+        <div class="main">
+            <h2 class="view-name">User Management</h2>
+            <button class="add-user-link" (click)="userCreate()">Add a User</button>
+            <table table-border class="event-table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+                <tr *ngFor="let u of users; let o = odd; let e = even" [ngClass] = "{odd: o, even: e}">
+                    <!--Ideally you would run an ngfor loop here-->
+                    <!--and assign dark and light properties to alternate rows-->
+                    <td>{{u.FirstName}}</td>
+                    <td>{{u.LastName}}</td>
+                    <td>{{u.Email}}</td>
+                    <td>{{u.Role}}</td>
+                    <td><button class="link-buttons" (click)="userEdit(u._id)">Edit</button></td>
+                    <td><button class="link-buttons" (click)="userDelete(u._id)">Delete</button></td>
+                </tr>
+            </table>
+            <div class="row"  *ngIf="showMsg_for_deletion">
+                <div class="col-xs-12">
+                  <p class="alert alert-success">
+                      <strong>User has been deleted!</strong>
+        
+                  </p>
+                </div>
+              </div>
+              <div class="row"  *ngIf="showMsg_for_creation">
+                <div class="col-xs-12">
+                  <p class="alert alert-success">
+                      <strong>User/Admin has been created!</strong>
+        
+                  </p>
+                </div>
+              </div>
+
+              <div class="row"  *ngIf="showMsg_for_editing">
+                <div class="col-xs-12">
+                  <p class="alert alert-success">
+                      <strong>User/Admin has been edited!</strong>
+        
+                  </p>
+                </div>
+              </div>
+        </div>
+    </div>
