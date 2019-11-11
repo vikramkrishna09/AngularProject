@@ -13,7 +13,15 @@ a:visited       {color: #47947C}
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
+.tab, .tab-active{width:1in; height:1cm}
+.tab:hover{
+  background-color: #47947C; 
+  color: #093426;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.tab{background-color: #347B98; color: #F3F7D4;}
+.tab-active{background-color: #47947C; color: #093426;}
 td,th       {width: 2in; height: 1cm;}
 th,h2       {color:#F3F7D4 !important; background-color:#093426 !important}
 .even       {color:#093426 !important; background-color:#F3F7D4 !important}

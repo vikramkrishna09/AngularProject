@@ -75,7 +75,7 @@ router.post('/signup', function(req, res) {
     .then(function(user) {
        bcrypt.compare(req.body.Password, user.Password, function(err, result){
           if(err) {
-             return res.status(401).json({
+             return res.status(402).json({
                 failed: 'Unauthorized Access'
              });
           }
@@ -96,7 +96,7 @@ router.post('/signup', function(req, res) {
                 Role: user.Role
              });
           }
-          return res.status(401).json({
+          return res.status(403).json({
              failed: 'Unauthorized Access'
           });
        });
