@@ -12,6 +12,11 @@ import { EventRegUserComponent } from './event-reg-user/event-reg-user.component
 import { EventDetailsUserComponent } from './event-details-user/event-details-user.component';
 import { EventRegDetailsUserComponent } from './event-reg-details-user/event-reg-details-user.component';
 
+import {AuthGuardService as AuthGuard} from './auth-guard.service';
+import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
+
+
+
 
 const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -20,17 +25,17 @@ const routes: Routes = [
 
   //admin paths
   {path:"", component: UserViewAdminComponent},
-  {path:"admin-event-mgmt", component: EventViewAdminComponent},
-  {path:"admin-user-mgmt", component:UserViewAdminComponent},
-  {path:"admin-user-create", component:UserCreateAdminComponent},
-  {path:"admin-user-edit", component:UserEditAdminComponent},
-  {path:"admin-event-create",component:EventCreateAdminComponent},
-  {path:"admin-event-edit", component:EventEditAdminComponent},
+  {path:"admin-event-mgmt", component: EventViewAdminComponent,canActivate:[AuthGuard]},
+  {path:"admin-user-mgmt", component:UserViewAdminComponent,canActivate:[AuthGuard]},
+  {path:"admin-user-create", component:UserCreateAdminComponent,canActivate:[AuthGuard]},
+  {path:"admin-user-edit", component:UserEditAdminComponent,canActivate:[AuthGuard]},
+  {path:"admin-event-create",component:EventCreateAdminComponent,canActivate:[AuthGuard]},
+  {path:"admin-event-edit", component:EventEditAdminComponent,canActivate:[AuthGuard]},
   
   //user paths
-  {path:"user-view",component:EventRegUserComponent},
-  {path:"event-details", component:EventDetailsUserComponent},
-  {path:"event-register", component:EventRegDetailsUserComponent},
+  {path:"user-view",component:EventRegUserComponent,canActivate:[AuthGuard]},
+  {path:"event-details", component:EventDetailsUserComponent,canActivate:[AuthGuard]},
+  {path:"event-register", component:EventRegDetailsUserComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

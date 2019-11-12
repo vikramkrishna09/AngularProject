@@ -3,7 +3,8 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { APIService, Event } from '../api.service';
-import { httpOptions, showMsg_for_editing_key } from '../user-view-admin/user-view-admin.component';
+import {  showMsg_for_editing_key } from '../event-view-admin/event-view-admin.component';
+import { httpOptions } from '../user-view-admin/user-view-admin.component';
 
 @Component({
   selector: 'app-event-edit-admin',

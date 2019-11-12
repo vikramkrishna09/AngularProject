@@ -26,9 +26,9 @@
                 <tr>
                     <td><label for="ecategory">Category:</label></td>
                     <td><select id="ecategory" [class.has-error]="ecategoryControl.invalid && ecategoryControl.touched" required [(ngModel)]="EventCategory" #ecategoryControl="ngModel" name="ecategory" id="ecategory">
-                        <option value="conference">Conference</option>
-                        <option value="seminar">Seminar</option>
-                        <option value="presentation">Presentation</option>
+                        <option value="Conference">Conference</option>
+                        <option value="Seminar">Seminar</option>
+                        <option value="Presentation">Presentation</option>
                     </select></td>
                     <td class="help-block" *ngIf="ecategoryControl.invalid && ecategoryControl.touched">Event category is required.</td>
                 </tr>
@@ -52,8 +52,8 @@
                 </tr>
 <!---------THE FIELDS: REGISTRATION FLAG--------->
                 <tr>
-                    <td><label for="AllowRegistration"> Allow registration?</label></td>
-                    <td><input type="checkbox" name="ereg" id="ereg" class="checkbox"/></td>
+                    <td><label for="ereg"> Allow registration?</label></td>
+                    <td><input type="checkbox" [(ngModel)] = "ereg" name="ereg" id="ereg" class="checkbox"/></td>
                 </tr>
 <!---------THE FIELDS: EVENT IMAGE--------->
                 <!-- <tr>

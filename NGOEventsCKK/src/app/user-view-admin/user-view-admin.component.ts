@@ -40,13 +40,14 @@ export class UserViewAdminComponent implements OnInit {
   showMsg_for_deletion
   showMsg_for_creation
   showMsg_for_editing
+  userType
   ngOnInit() {
     if (localStorage.getItem(this.showMsg_for_deletion_key) == 'true')
-      this.showMsg_for_deletion = 'true'
+      this.showMsg_for_deletion = true
     if (localStorage.getItem(this.showMsg_for_creation_key) == 'true')
-      this.showMsg_for_creation = 'true'
+      this.showMsg_for_creation = true
       if (localStorage.getItem(this.showMsg_for_editing_key) == 'true')
-      this.showMsg_for_editing = 'true'
+      this.showMsg_for_editing = true
 
     localStorage.removeItem(this.showMsg_for_creation_key)
     localStorage.removeItem(this.showMsg_for_deletion_key)
@@ -63,9 +64,11 @@ export class UserViewAdminComponent implements OnInit {
     };
 
 
+    
     var subscriber = this._data.getUsers(this.httpOptions).subscribe(
       (data) => {
         this.users = data;
+        localStorage.setItem('old_users',data)
         this.users.forEach(element => {
           console.log(element)
         });
@@ -74,6 +77,7 @@ export class UserViewAdminComponent implements OnInit {
       (error) => console.log(error),
       () => console.log("Users should have been recieved")
     )
+    
   }
   userCreate() {
     //navigation only

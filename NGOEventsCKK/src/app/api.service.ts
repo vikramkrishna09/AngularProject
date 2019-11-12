@@ -22,6 +22,20 @@ export class Event
   ChildTicketPrice:String
 }
 
+export class RegistrationDetails
+{
+   FirstName: string
+   LastName: string
+   Email: string
+   Phonenumber: string
+   Address: string
+   NumofAdultTickets: string
+   NumofChildTickets: string
+   Userref: String
+   Eventref: String
+
+}
+
 export class User
 {
   FirstName: string
@@ -30,6 +44,8 @@ export class User
   LastName: string
   Role: string
 }
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +61,9 @@ export class APIService {
 
   private signinurl = "http://localhost:4000/api/signin"
 
+  private eventregistrationurl =  "http://localhost:4000/api/registerforevent"
+
+
    
   
   
@@ -53,7 +72,14 @@ export class APIService {
 
    }
 
- 
+   postEventRegistration(val,httpOptions): Observable<any>
+   {
+      var A = this.http.post(this.eventregistrationurl,val,httpOptions)
+      .pipe(
+         catchError(this.catcher))
+      return A
+   }
+
 
   values: any
 

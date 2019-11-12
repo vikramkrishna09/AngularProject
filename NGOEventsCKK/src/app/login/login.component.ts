@@ -62,7 +62,9 @@ export class LoginComponent implements OnInit {
       console.log('reached')
       console.log(data)
       const Role = data.Role
+      localStorage.setItem('loggedinid',data._id)
       localStorage.setItem('token',data.token)
+      localStorage.setItem('usertype',Role)
       console.log(localStorage.getItem('token'))
       ngForm.form.controls['email'].setErrors({invalid: false});
       ngForm.form.controls['pass'].setErrors({invalid: false});
@@ -77,6 +79,8 @@ export class LoginComponent implements OnInit {
 
       if(Role == "User")
       {
+        this.router.navigate(['/user-view']);
+
         this.subscriber.unsubscribe()
       }
 

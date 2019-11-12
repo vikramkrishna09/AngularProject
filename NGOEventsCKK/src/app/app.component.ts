@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'NGOEventsCKK';
 
+  constructor(private router:Router)
+{}
   public logged:boolean = true;
   //the "logged" flag should be true if someone's logged in.
   //if not, it should be set to false.
@@ -15,8 +18,8 @@ export class AppComponent {
   // a logout function
   logout()
   {
-    //here's the log out function
+    localStorage.clear()
     this.logged=false;
-    //redirect them to home page
+    this.router.navigate(['/home'])
   }
 }

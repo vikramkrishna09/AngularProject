@@ -2,30 +2,30 @@
     <div class="main">
         <table class="table-head">
             <tr class="head-row">
-                <td class="head"><h2>Event Registration Detail: Event Name</h2></td>
+                <td class="head"><h2>Event Registration Detail: {{events.EventName}}</h2></td>
                 <td class="head" align="center"><button class="back-button" (click)=backToUserView()>Back</button></td>
             </tr>
         </table>
         <div class="container">
             <table table-border>
                 <tr>
-                    <td class="left">{{events.ename}}</td>
-                    <td class="center" rowspan="3">{{events.edescr}}</td>
+                    <td class="left">{{events.EventName}}</td>
+                    <td class="center" rowspan="3">{{events.EventDescription}}</td>
                     <td class="right" rowspan="5">Event Image</td>
                 </tr>
                 <tr>
-                    <td class="left">Category : {{events.ecategory}}</td>
+                    <td class="left">Category : {{events.EventCategory}}</td>
                 </tr>
                 <tr>
-                    <td class="left">Location : {{events.elocation}}</td>
+                    <td class="left">Location : {{events.EventLocation}}</td>
                 </tr>
                 <tr>
-                    <td class="left">Starts : {{events.estart|date:'MM/dd/yyyy h:mm a'}}</td>
-                    <td class="center">Adult tickets : ${{events.eadult}}</td>
+                    <td class="left">Starts : {{events.EventStartDateAndTime|date:'MM/dd/yyyy h:mm a'}}</td>
+                    <td class="center">Adult tickets : ${{events.AdultTicketPrice}}</td>
                 </tr>
                 <tr>
-                    <td class="left">Ends : {{events.eend|date:'MM/dd/yyyy h:mm a'}}</td>
-                    <td class="center">Child tickets : ${{events.echild}}</td>
+                    <td class="left">Ends : {{events.EventEndDateAndTime|date:'MM/dd/yyyy h:mm a'}}</td>
+                    <td class="center">Child tickets : ${{events.ChildTicketPrice}}</td>
                 </tr>
                 <tr>
                     <td colspan="3" align="center" class="bottom" (click)="toRegDetails()">Register</td>

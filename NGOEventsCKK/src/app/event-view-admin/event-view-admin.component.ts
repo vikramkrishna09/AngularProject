@@ -14,20 +14,7 @@ export const showMsg_for_editing_key = 'showMsg_for_event_editing'
 
 export class EventViewAdminComponent implements OnInit {
 
-  public events = [
-    {
-      ename: "Event 1", edescr: "Lorem Ipsum", ecategory: "Conference", estart: "1968-11-16T00:00:00",
-      eend: "1968-11-16T00:00:00", elocation: "New York", ereg: true, eadult: 40, echild: 20,
-    },
-    {
-      ename: "Event 2", edescr: "Lorem Ipsum", ecategory: "Seminar", estart: "2019-11-16T00:00:00",
-      eend: "2019-11-30T00:00:00", elocation: "Washington D.C.", ereg: true, eadult: 40, echild: 20,
-    },
-    {
-      ename: "Event 3", edescr: "Lorem Ipsum", ecategory: "Conference", estart: "2019-04-21T00:00:00",
-      eend: "2019-05-16T00:00:00", elocation: "Chicago", ereg: true, eadult: 40, echild: 20,
-    }
-  ];
+  public events;
 
   showMsg_for_deletion_key = 'showMsg_for_event_deletion'
   showMsg_for_deletion
@@ -46,6 +33,7 @@ export class EventViewAdminComponent implements OnInit {
     localStorage.removeItem(showMsg_for_creation_key)
     localStorage.removeItem(this.showMsg_for_deletion_key)
     localStorage.removeItem(showMsg_for_editing_key)
+
 
     var subscriber = this._data.getEvents(httpOptions).subscribe(
       (data) => {

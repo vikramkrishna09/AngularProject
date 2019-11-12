@@ -17,7 +17,6 @@ function verifyToken(req, res, next){
     const bearerHeader = req.headers['authorization']; 
     //Check if there is  a header
     if(typeof bearerHeader !== 'undefined'){
-       console.log(bearerHeader)
         const bearer = bearerHeader.split(' ');
         //Get Token arrray by spliting
         const bearerToken = bearer[1];
@@ -31,14 +30,20 @@ function verifyToken(req, res, next){
  }
 
 
- router.post('/registerforevent', function(req,res,next){
-   
+ router.post('/registerforevent',verifyToken, function(req,res,next){
+    jwt.verify(req.token, secretK, (err, authData)=>{
+        if(err)
+       {
+          res.send('Problem with token most likely, if postman then verifytoken is the issue')
+          return;
+       }
 
 
     Register.create(req.body, function (err,event) {
         if(err) return next(err);
         res.json(event);
     });
+});
 });
 
 

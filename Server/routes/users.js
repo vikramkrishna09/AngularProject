@@ -93,7 +93,8 @@ router.post('/signup', function(req, res) {
              return res.status(200).json({
                 success: 'Welcome to the JWT Auth',
                 token: JWTToken,
-                Role: user.Role
+                Role: user.Role,
+                _id: user._id
              });
           }
           return res.status(403).json({
@@ -115,7 +116,6 @@ router.post('/signup', function(req, res) {
     const bearerHeader = req.headers['authorization']; 
     //Check if there is  a header
     if(typeof bearerHeader !== 'undefined'){
-       console.log(bearerHeader)
         const bearer = bearerHeader.split(' ');
         //Get Token arrray by spliting
         const bearerToken = bearer[1];
@@ -144,7 +144,6 @@ router.post('/signup', function(req, res) {
 //Get all Users
 router.get('/users',verifyToken, function(req,res,next){
     jwt.verify(req.token, secretK, (err, authData)=>{
-       console.log("AAA" + req.token)
       if(err)
       {
          res.send('Problem with token most likely, if postman then verifytoken is the issue')

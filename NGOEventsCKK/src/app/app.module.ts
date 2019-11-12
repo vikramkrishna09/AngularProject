@@ -17,6 +17,27 @@ import { EventDetailsUserComponent } from './event-details-user/event-details-us
 import { EventEditAdminComponent } from './event-edit-admin/event-edit-admin.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIService } from './api.service';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
+import { JwtHelperService, JWT_OPTIONS, JwtModuleOptions } from '@auth0/angular-jwt';
+import { JwtModule } from "@auth0/angular-jwt";
+
+
+
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
+
+
+const JWT_Module_Options: JwtModuleOptions = {
+  config: {
+      tokenGetter: tokenGetter,
+  }
+};
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,9 +58,11 @@ import { APIService } from './api.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot(JWT_Module_Options)
+
   ],
-  providers: [APIService],
+  providers: [APIService,AuthGuardService,AuthService,JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

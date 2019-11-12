@@ -1,5 +1,5 @@
 <div class="arial">
-    <div class="sidenav"> <!--Add an ngIf here to only display the nav bar when the user is an admin-->
+    <div class="sidenav" *ngIf="userType"> <!--Add an ngIf here to only display the nav bar when the user is an admin-->
         <a (click)="userMgmtNav()">User Management</a>
         <a (click)="eventMgmtNav()">Event Management</a>
         <a (click)="userViewNav()">User View</a>
@@ -10,9 +10,9 @@
         <!--add an ngIf here to display "event registration (user view) for admins-->
         <table> <!--three images per row-->
             <tr *ngFor="let ev of events">
-                <td class="event-name" (click)="eventDetails()">{{ev.ename}}</td>
-                <td class="event-loc" (click)="eventDetails()">{{ev.elocation}}</td>
-                <td (click)="eventDetails()">View Details</td>
+                <td class="event-name" (click)="eventDetails(ev._id)">{{ev.EventName}}</td>
+                <td class="event-loc" (click)="eventDetails(ev._id)">{{ev.EventLocation}}</td>
+                <td (click)="eventDetails(ev._id)">View Details</td>
             </tr>
         </table>
     </div>

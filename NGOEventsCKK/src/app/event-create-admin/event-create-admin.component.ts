@@ -49,11 +49,12 @@ export class EventCreateAdminComponent implements OnInit {
     this.eventDetails.EventDescription = data.edescr
     this.eventDetails.EventCategory = data.ecategory
     this.eventDetails.EventLocation = data.elocation
-    this.eventDetails.AdultTicketPrice = data.eAdult
-    this.eventDetails.ChildTicketPrice = data.eChild
+    this.eventDetails.AdultTicketPrice = data.eadult
+    this.eventDetails.ChildTicketPrice = data.echild
     this.eventDetails.EventStartDateAndTime = data.estart
     this.eventDetails.EventEndDateAndTime = data.eend
     this.eventDetails.AllowRegistration = data.ereg
+    console.log(data.ereg)
 
     this.eventDetails= JSON.parse(JSON.stringify(this.eventDetails))
 
@@ -72,7 +73,6 @@ export class EventCreateAdminComponent implements OnInit {
 
     )
 
-    this.router.navigate(['/admin-event-mgmt']);
   }
   backToEvents(){
     //back button navigation logic, no need of anything else.

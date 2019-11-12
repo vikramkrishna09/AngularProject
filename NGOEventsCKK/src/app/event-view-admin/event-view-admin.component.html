@@ -27,5 +27,30 @@
                 <td><button class="link-buttons" (click)="eventEdit(ev._id)">Edit</button></td>
             </tr>
         </table>
+        <div class="row"  *ngIf="showMsg_for_deletion">
+            <div class="col-xs-12">
+              <p class="alert alert-success">
+                  <strong>Event has been deleted!</strong>
+    
+              </p>
+            </div>
+          </div>
+          <div class="row"  *ngIf="showMsg_for_creation">
+            <div class="col-xs-12">
+              <p class="alert alert-success">
+                  <strong>new Event has been created!</strong>
+    
+              </p>
+            </div>
+          </div>
+
+          <div class="row"  *ngIf="showMsg_for_editing">
+            <div class="col-xs-12">
+              <p class="alert alert-success">
+                  <strong>Event has been edited!</strong>
+    
+              </p>
+            </div>
+          </div>
     </div>
 </div>
