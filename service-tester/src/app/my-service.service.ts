@@ -58,6 +58,8 @@ export class MyServiceService {
    {
       
       console.log(val)
+      console.log(val)
+
       return this.http.post(this.event_url,val,httpOptions)
       .pipe(catchError(this.catcher))
    }
