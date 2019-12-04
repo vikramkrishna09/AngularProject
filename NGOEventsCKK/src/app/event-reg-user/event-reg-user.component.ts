@@ -16,6 +16,7 @@ export class EventRegUserComponent implements OnInit {
   userType = localStorage.getItem('userType')
 
   ngOnInit() {
+    var x = 5
     var subscriber = this._data.getEvents(httpOptions).subscribe(
       (data) => {
         this.events = data;
